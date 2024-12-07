@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Navbar</title>
+    <link rel="stylesheet" href="admin-page.css">
+    <style>
+           .card {
+            border-radius: 10px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .card-icon {
+            font-size: 3rem;
+            color: #0d6efd;
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: bold;
+        }
+
+        .card-text {
+            color: #6c757d;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <img src="images/logo.jpg" alt="Logo">
+            </div>
+            <ul class="nav-links">
+                <li><a href="{% url 'create-id' %}">Create ID</a></li>
+                <li><a href="cart-box.html">Update</a></li>
+                <li><a href="#">Menu</a></li>
+                <li><a href="#">Notice Board</a></li>
+                <li><a href="#">HandSack</a></li>
+            </ul>
+            <div class="search-bar">
+                <input type="text" placeholder="Client number">
+                <a href="search-detail.html"><button>Search</button></a>
+                
+            </div>
+        </nav>
+    </header>
+</body>
+</html>

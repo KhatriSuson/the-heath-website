@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create ID</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="create-id-styles.css">
+    <style>
+        h2 {
+            color: #343a40;
+            animation: fadeInDown 1s ease-in-out;
+        }
+
+        .nav-tabs .nav-link.active {
+            background-color: #0d6efd;
+            color: #ffffff;
+        }
+
+        .tab-pane {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        .btn-group .btn {
+            width: 120px;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container mt-5">
+        <div class="card shadow-lg p-4" id="create-id-form">
+            <h2 class="text-center mb-4 animate-heading"><b>Create ID</b></h2>
+            <form id="idForm">
+                <div class="row g-3">
+                    <u>
+                        <h4>Client Details</h4>
+                    </u>
+                    <div class="col-md-4">
+                        <label for="firstName" class="form-label">First Name *</label>
+                        <input type="text" class="form-control" id="firstName" placeholder="Enter First Name">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="midName" class="form-label">Mid Name *</label>
+                        <input type="text" class="form-control" id="midName" placeholder="Enter Middle Name">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="sureName" class="form-label">Sure Name *</label>
+                        <input type="text" class="form-control" id="sureName" placeholder="Enter Sure Name">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="dob" class="form-label">Date of Birth *</label>
+                        <input type="date" class="form-control" id="dob">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="age" class="form-label">Age *</label>
+                        <input type="number" class="form-control" id="age" placeholder="Enter Age">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="sex" class="form-label">Sex *</label>
+                        <select class="form-select" id="sex">
+                            <option selected disabled>Choose...</option>
+                            <option>Male</option>
+                            <option>Female</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="district" class="form-label">District *</label>
+                        <input type="text" class="form-control" id="district" placeholder="Enter District">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="localLevel" class="form-label">Local Level *</label>
+                        <input type="text" class="form-control" id="localLevel" placeholder="Enter Local Level">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="ward" class="form-label">Ward *</label>
+                        <input type="text" class="form-control" id="ward" placeholder="Enter Ward">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="tole" class="form-label">Tole *</label>
+                        <input type="text" class="form-control" id="tole" placeholder="Enter Tole">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="mobileNumber" class="form-label">Mobile Number *</label>
+                        <input type="text" class="form-control" id="mobileNumber" placeholder="Enter Mobile Number">
+                    </div>
+                    <u>
+                        <h4>Guardian Details</h4>
+                    </u>
+                    <div class="col-md-6">
+                        <label for="guardianName" class="form-label">Name of Guardian *</label>
+                        <input type="text" class="form-control" id="guardianName" placeholder="Enter Name of Guardian">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="mobileNumber" class="form-label">Mobile Number *</label>
+                        <input type="text" class="form-control" id="mobileNumber" placeholder="Enter Mobile Number">
+                    </div>
+                </div>
+                <div class="text-center mt-4">
+                    <button type="submit" class="btn btn-primary btn-animate">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.getElementById('idForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Form submitted successfully!');
+            // Add logic for form submission here
+        });
+
+    </script>
+</body>
+
+</html>
