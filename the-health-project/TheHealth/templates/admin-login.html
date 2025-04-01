@@ -105,5 +105,27 @@
             </div>
         </nav>
     </header>
+    <div class="container">
+        <div class="login-box">
+            <h2>Admin Login</h2>
+            <form action="{% url 'admin-login' %}" method="POST">
+                {% csrf_token %}
+                <div class="user-box">
+                    <input type="text" name="username" required="">
+                    <label>Username</label>
+                </div>
+                <div class="user-box">
+                    <input type="password" name="password" required="">
+                    <label>Password</label>
+                </div>
+                <button type="submit">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    Submit
+                </button>
+            </form>
+        </div>
 </body>
 </html>
