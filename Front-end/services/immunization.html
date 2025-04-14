@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Immunization Services</title>
+    <link rel="stylesheet" href="css/service-style.css">
+</head>
+<body>
+    <div class="form-container" id="immunizationForm">
+        <h3>Immunization Record</h3>
+        <form onsubmit="submitImmunization(event)">
+          <input type="text" placeholder="Client ID" required />
+          <input type="text" placeholder="Child's Name" required />
+          <input type="date" placeholder="Date of Birth" required />
+          <select required>
+            <option value="">Vaccine Type</option>
+            <option>BCG</option>
+            <option>OPV</option>
+            <option>DPT</option>
+            <option>Measles</option>
+          </select>
+          <input type="date" placeholder="Vaccination Date" required />
+          <textarea placeholder="Notes / Reactions"></textarea>
+          <button type="submit">Submit Immunization</button>
+        </form>
+      </div>
+      
+</body>
+</html>

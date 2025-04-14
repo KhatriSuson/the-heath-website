@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ANC</title>
+    <link rel="stylesheet" href="css/service-style.css">
+</head>
+<body>
+    <div class="form-container" id="ancForm">
+        <h3>ANC Registration</h3>
+        <form onsubmit="submitANC(event)">
+          <input type="text" placeholder="Client ID" required />
+          <input type="text" placeholder="Full Name" required />
+          <input type="number" placeholder="Age" min="12" required />
+          <input type="text" placeholder="Gravida" required />
+          <input type="text" placeholder="Para" required />
+          <input type="date" placeholder="LMP" required />
+          <input type="date" placeholder="EDD" required />
+          <select required>
+            <option value="">ANC Visit</option>
+            <option>1st Visit</option>
+            <option>2nd Visit</option>
+            <option>3rd Visit</option>
+            <option>4th Visit</option>
+          </select>
+          <textarea placeholder="Remarks"></textarea>
+          <button type="submit">Submit ANC</button>
+        </form>
+      </div>
+      
+</body>
+</html>

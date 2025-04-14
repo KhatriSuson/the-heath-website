@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Health Records</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #f0f4f8;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    .form-container {
+      background: #fff;
+      padding: 1.5rem;
+      margin: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      max-width: 600px;
+      width: 100%;
+    }
+
+    .form-container h3 {
+      margin-bottom: 1rem;
+      color: #2e86de;
+      text-align: center;
+    }
+
+    .form-container form input,
+    .form-container form select,
+    .form-container form textarea {
+      width: 100%;
+      margin-bottom: 1rem;
+      padding: 0.75rem;
+      border-radius: 0.5rem;
+      border: 1px solid #ccc;
+    }
+
+    .form-container form button {
+      background: #2e86de;
+      color: white;
+      padding: 0.8rem 1.5rem;
+      border: none;
+      border-radius: 0.5rem;
+      cursor: pointer;
+      transition: 0.3s;
+      width: 100%;
+    }
+
+    .form-container form button:hover {
+      background: #1b4f72;
+    }
+
+    .success-message {
+      text-align: center;
+      color: #2ecc71;
+      margin-top: 1rem;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="form-container">
+    <h3>Health Records Form</h3>
+    <form id="healthRecordForm">
+      <input type="text" id="patientName" placeholder="Patient Full Name" required />
+      <input type="date" id="recordDate" placeholder="Date of Record" required />
+      <input type="text" id="patientID" placeholder="Patient ID / Client ID" required />
+      <input type="text" id="diagnosis" placeholder="Diagnosis" required />
+      <textarea id="treatment" placeholder="Treatment Provided" rows="3" required></textarea>
+      <textarea id="notes" placeholder="Additional Notes" rows="3"></textarea>
+      <select id="recordType" required>
+        <option value="">Select Record Type</option>
+        <option value="OPD">OPD</option>
+        <option value="ANC">ANC</option>
+        <option value="Family Planning">Family Planning</option>
+        <option value="Immunization">Immunization</option>
+        <option value="Emergency">Emergency</option>
+        <option value="Other">Other</option>
+      </select>
+      <button type="submit">Save Record</button>
+      <div class="success-message" id="messageBox"></div>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById("healthRecordForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      document.getElementById("messageBox").textContent = "✅ Health record saved successfully!";
+      this.reset();
+    });
+  </script>
+
+</body>
+</html>

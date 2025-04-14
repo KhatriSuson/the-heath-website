@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>View OPD Record</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f4f4f9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .form-container {
+      background-color: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      width: 300px;
+    }
+
+    h2 {
+      text-align: center;
+      color: #2e86de;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    label {
+      font-size: 1rem;
+      margin-bottom: 5px;
+      display: block;
+    }
+
+    input {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .btn {
+      width: 100%;
+      padding: 10px;
+      background-color: #3498db;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background-color: #2980b9;
+    }
+
+    .image-container {
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    img {
+      width: 100%;
+      max-width: 400px;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="form-container">
+    <h2>View OPD Record</h2>
+    <form id="viewOpdForm">
+      <div class="form-group">
+        <label for="viewPatientId">Enter Patient ID</label>
+        <input type="text" id="viewPatientId" placeholder="Enter Patient ID" required />
+      </div>
+
+      <button type="submit" class="btn">View Record</button>
+    </form>
+
+    <div class="image-container" id="opdImageContainer" style="display:none;">
+      <h3>OPD Report (Image)</h3>
+      <img id="opdImageView" src="" alt="OPD Report Image" />
+    </div>
+
+    <div id="viewStatusMessage" style="margin-top: 10px;"></div>
+  </div>
+
+  <script>
+    document.getElementById("viewOpdForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      const patientId = document.getElementById("viewPatientId").value;
+
+      // Simulate fetching OPD record from the backend using the patient ID.
+      // Here, we'll assume we get a valid image URL from the server.
+      const imageUrl = "path/to/opd-images/" + patientId + ".jpg"; // Simulated image URL
+
+      document.getElementById("opdImageContainer").style.display = "block";
+      document.getElementById("opdImageView").src = imageUrl;
+      document.getElementById("viewStatusMessage").textContent = "OPD Record Loaded Successfully!";
+      document.getElementById("viewStatusMessage").style.color = "#2ecc71"; // success message
+    });
+  </script>
+
+</body>
+</html>

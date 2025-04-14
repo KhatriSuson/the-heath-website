@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Family Planning services</title>
+    <link rel="stylesheet" href="css/service-style.css">
+</head>
+<body>
+    <div class="form-container" id="fpForm">
+        <h3>Family Planning</h3>
+        <form onsubmit="submitFP(event)">
+          <input type="text" placeholder="Client ID" required />
+          <input type="text" placeholder="Full Name" required />
+          <input type="number" placeholder="Age" required />
+          <select required>
+            <option value="">Sex</option>
+            <option>Male</option>
+            <option>Female</option>
+          </select>
+          <select required>
+            <option value="">Method Chosen</option>
+            <option>Condom</option>
+            <option>Oral Pills</option>
+            <option>IUD</option>
+            <option>Implant</option>
+            <option>Sterilization</option>
+          </select>
+          <textarea placeholder="Remarks (if any)"></textarea>
+          <button type="submit">Submit Family Planning</button>
+        </form>
+      </div>
+      
+</body>
+</html>

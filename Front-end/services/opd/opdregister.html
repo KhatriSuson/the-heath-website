@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OPD</title>
+    <link rel="stylesheet" href="/Front-end/Front-end/services/css/service-style.css">
+</head>
+<body>
+    <div class="form-container" id="opdForm">
+        <h3>OPD Registration</h3>
+        <form onsubmit="submitOPD(event)">
+          <input type="text" placeholder="Client ID" required />
+          <input type="text" placeholder="Full Name" required />
+          <input type="number" placeholder="Age" min="0" required />
+          <select required>
+            <option value="">Sex</option>
+            <option>Male</option>
+            <option>Female</option>
+            <option>Other</option>
+          </select>
+          <input type="text" placeholder="Address" required />
+          <input type="text" placeholder="Department (e.g., General, ENT)" required />
+          <textarea placeholder="Symptoms / Complaint" required></textarea>
+          <button type="submit">Submit OPD</button>
+        </form>
+      </div>
+      
+</body>
+</html>

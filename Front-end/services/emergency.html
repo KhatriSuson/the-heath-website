@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emergency Services</title>
+    <link rel="stylesheet" href="css/service-style.css">
+</head>
+<body>
+    <div class="form-container" id="emergencyForm">
+        <h3>Emergency Case Registration</h3>
+        <form onsubmit="submitEmergency(event)">
+          <input type="text" placeholder="Client ID" required />
+          <input type="text" placeholder="Full Name" required />
+          <input type="number" placeholder="Age" min="0" required />
+          <select required>
+            <option value="">Sex</option>
+            <option>Male</option>
+            <option>Female</option>
+            <option>Other</option>
+          </select>
+          <input type="text" placeholder="Address" required />
+          <input type="text" placeholder="Emergency Type (e.g., Accident, Burn, Trauma)" required />
+          <textarea placeholder="Description of Incident / Symptoms" required></textarea>
+          <input type="text" placeholder="Brought By (Relative/Friend/Police)" required />
+          <input type="tel" placeholder="Contact Number" pattern="98[0-9]{8}" required />
+          <input type="datetime-local" placeholder="Date & Time of Arrival" required />
+          <button type="submit">Submit Emergency Case</button>
+        </form>
+      </div>
+      
+</body>
+</html>
