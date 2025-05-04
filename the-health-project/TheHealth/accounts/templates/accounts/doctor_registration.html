@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Registration</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-r from-blue-100 to-blue-300 min-h-screen flex items-center justify-center">
+
+    <div class="bg-white p-8 rounded-2xl shadow-lg w-full max-w-md">
+        <h1 class="text-3xl font-bold text-center text-blue-700 mb-6">Doctor Registration</h1>
+
+        <form action="" method="post" class="space-y-5">
+            {% csrf_token %}
+            
+            <!-- Doctor's Name Input -->
+            <div class="flex flex-col">
+                <label for="doctor_name" class="text-lg font-semibold text-gray-700 mb-2">phone number</label>
+                {{form.phone_number}}
+            </div>
+            <div class="flex flex-col">
+                <label for="doctor_name" class="text-lg font-semibold text-gray-700 mb-2">first name</label>
+                {{form.first_name}}
+            </div>
+            <div class="flex flex-col">
+                <label for="doctor_name" class="text-lg font-semibold text-gray-700 mb-2">password </label>
+                {{form.password1}}
+            </div>
+            <div class="flex flex-col">
+                <label for="doctor_name" class="text-lg font-semibold text-gray-700 mb-2"> confirm password</label>
+                {{form.password2}}
+            </div>
+
+            <!-- Submit Button -->
+            <input type="submit" value="Submit" 
+                class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-xl transition-all duration-300 cursor-pointer">
+        </form>
+    </div>
+
+    <!-- Optional: Adding interactivity to form inputs -->
+    <script>
+        const inputs = document.querySelectorAll('input, select, textarea');
+        
+        inputs.forEach(input => {
+            input.classList.add(
+                "w-full", 
+                "p-2", 
+                "border", 
+                "border-gray-300", 
+                "rounded-lg", 
+                "focus:outline-none", 
+                "focus:ring-2", 
+                "focus:ring-blue-400",
+                "transition"
+            );
+        });
+    </script>
+
+</body>
+</html>

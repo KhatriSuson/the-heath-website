@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    {% if object_list %}
+
+    {% for appoint in object_list %}
+    <li>
+        Doctor: {{ appoint.doctor.first_name }} <br>
+        Appointment Date: {{ appoint.appointment_date }} <br>
+        Status: {% if appoint.is_approved %}Approved{% else %}Pending{% endif %}
+    </li>
+    {% endfor %}
+    <hr>
+    {% else %}
+
+    <p>no appoints are here</p>
+    
+    {% endif %}
+
+    <a href="{% url 'patient_logout'%}">logout</a><br><br><br><br>
+    <a href="{% url 'patient_appoint'%}">book your appointment</a><br><br>
+    {{request.user.first_name}}
+    
+</body>
+</html>
