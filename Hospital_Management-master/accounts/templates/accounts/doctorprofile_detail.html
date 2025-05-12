@@ -1,16 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Doctor Profile</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f0f4f8;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+    }
+
+    .profile-card {
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      max-width: 400px;
+      text-align: center;
+      animation: fadeIn 1s ease;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .profile-card img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #00796b;
+      margin-bottom: 15px;
+    }
+
+    .profile-card h1 {
+      font-size: 24px;
+      color: #00796b;
+      margin-bottom: 10px;
+    }
+
+    .profile-card p {
+      font-size: 16px;
+      margin: 5px 0;
+      color: #333;
+    }
+
+    .specialization {
+      margin-top: 10px;
+      font-weight: bold;
+      color: #555;
+    }
+  </style>
 </head>
 <body>
+
+  <div class="profile-card">
+    {% if object.photo %}
+      <img src="{{ object.photo.url }}" alt="Doctor Profile Photo">
+    {% else %}
+      <img src="https://via.placeholder.com/120" alt="Default Profile Photo">
+    {% endif %}
     
-    <h1>name : {{ object.user.first_name }}</h1>
-    <p> phone_number :{{ object.user.phone_number }}</p>
-    specilization:{{object.specialization}}
-    
+    <h1>{{ object.user.first_name }}</h1>
+    <p>Phone Number: {{ object.user.phone_number }}</p>
+    <p class="specialization">Specialization: {{ object.specialization }}</p>
+  </div>
+
 </body>
 </html>
