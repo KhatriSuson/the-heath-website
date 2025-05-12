@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hospital Services</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+  <style>
+    :root {
+      --primary: #2e86de;
+      --secondary: #f1f5f9;
+      --text: #333;
+      --card-bg: #ffffff;
+      --shadow: rgba(0, 0, 0, 0.1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      background: var(--secondary);
+      color: var(--text);
+    }
+
+    nav {
+      background: var(--primary);
+      color: white;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    nav .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    nav ul li {
+      cursor: pointer;
+      transition: opacity 0.3s;
+    }
+
+    nav ul li:hover {
+      opacity: 0.8;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 2rem;
+      color: var(--primary);
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+
+    .card {
+      background: var(--card-bg);
+      padding: 1.5rem;
+      border-radius: 1rem;
+      box-shadow: 0 8px 16px var(--shadow);
+      text-align: center;
+      transition: transform 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card i {
+      font-size: 2.5rem;
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+
+    .card h3 {
+      margin-bottom: 0.5rem;
+    }
+
+    .card p {
+      font-size: 0.95rem;
+      margin-bottom: 1rem;
+    }
+
+    .card button {
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 0.6rem 1.2rem;
+      border-radius: 0.5rem;
+      cursor: pointer;
+      transition: background 0.3s ease-in-out;
+    }
+
+    .card button:hover {
+      background: #1b4f72;
+    }
+
+    @media (max-width: 600px) {
+      nav ul {
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 0.8rem;
+      }
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    nav {
+      background-color: #ffffff;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #2d89e5;
+    }
+
+    ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    li {
+      cursor: pointer;
+      font-size: 1rem;
+      color: #333;
+      transition: color 0.3s ease;
+    }
+
+    li:hover {
+      color: #2d89e5;
+    }
+
+    .right-section {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .search-container {
+      position: relative;
+    }
+
+    .search-container input {
+      padding: 0.5rem 2.5rem 0.5rem 1rem;
+      border: 1px solid #ccc;
+      border-radius: 25px;
+      outline: none;
+      width: 220px;
+      transition: border 0.3s ease;
+    }
+
+    .search-container input:focus {
+      border-color: #2d89e5;
+    }
+
+    .search-icon {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #666;
+      font-size: 1rem;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      ul {
+        flex-direction: column;
+        width: 100%;
+        margin-top: 1rem;
+      }
+
+      .right-section {
+        flex-direction: column;
+        width: 100%;
+        align-items: flex-start;
+        margin-top: 1rem;
+      }
+
+      .search-container input {
+        width: 100%;
+      }
+    }
+    .search-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-container input {
+  padding: 0.5rem 3rem 0.5rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 25px;
+  outline: none;
+  width: 220px;
+  transition: border 0.3s ease;
+}
+
+.search-container input:focus {
+  border-color: #2d89e5;
+}
+
+.search-btn {
+  position: absolute;
+  right: 5px;
+  background-color: #2d89e5;
+  border: none;
+  color: white;
+  padding: 0.4rem 0.7rem;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.search-btn:hover {
+  background-color: #1c6ecb;
+  transform: scale(1.05);
+}
+
+.search-btn i {
+  font-size: 0.9rem;
+}
+  </style>
+
+  <!-- FontAwesome CDN -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/">🏥 The-Health</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
+          </li>
+        
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'patient_appoint' %}">Appointments</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/Front-end/Front-end/services/services.html">Contact</a>
+          </li>
+          
+        </ul>
+        <form class="d-flex">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+
+  </nav>
+
+
+  <div class="container">
+    <h2>हाम्रो स्वास्थ्य सेवा</h2>
+    <div class="services-grid">
+  
+      <div class="card">
+        <i class="fas fa-stethoscope card-icon"></i>
+        <h3>बाह्य रोगी विभाग (OPD)</h3>
+        <p>अनुभवी चिकित्सकहरूद्वारा परामर्श, परीक्षण, र उपचार सेवा।</p>
+        <button><a href="{% url 'service_detail' service_slug='opd'%}">थप जान्नुहोस्</a></button>
+      </div>
+  
+      <div class="card">
+        <i class="fas fa-baby card-icon"></i>
+        <h3>गर्भअवस्था सेवा (ANC)</h3>
+        <p>स्वास्थ्य गर्भावस्था र प्रसूतिको लागि गुणस्तरीय पूर्वसुत्केरी सेवा।</p>
+        <button><a href="{% url 'service_detail' service_slug='anc'%}">थप जान्नुहोस्</a></button>
+      </div>
+  
+      <div class="card">
+        <i class="fas fa-venus-mars"></i>
+        <h3>परिवार नियोजन (Family Planning)</h3>
+        <p>प्रजनन स्वास्थ्य व्यवस्थापनका लागि समग्र सेवा र परामर्श।</p>
+        <button><a href="{% url 'service_detail' service_slug='family-planning'%}">थप जान्नुहोस्</a></button>
+      </div>
+  
+      <div class="card">
+        <i class="fas fa-syringe"></i>
+        <h3>खोप सेवा (Immunization)</h3>
+        <p>बालबालिका र वयस्कहरूलाई रोगबाट बच्न खोप सेवा।</p>
+        <button><a href="{% url 'service_detail' service_slug='immunization'%}">थप जान्नुहोस्</a></button>
+      </div>
+  
+      <div class="card">
+        <i class="fas fa-file-medical"></i>
+        <h3>स्वास्थ्य अभिलेख (Health Record)</h3>
+        <p>रोगीका चिकित्सकीय विवरणहरूको सुरक्षित डिजिटल व्यवस्थापन।</p>
+        <button><a href="{% url 'service_detail' service_slug='health-records'%}">थप जान्नुहोस्</a></button>
+      </div>
+  
+      <div class="card">
+        <i class="fas fa-ambulance"></i>
+        <h3>आपतकालीन सेवा (Emergency)</h3>
+        <p>२४/७ तत्काल उपचार र एम्बुलेन्स सहितको आपतकालीन सेवा।</p>
+        <button><a href="{% url 'service_detail' service_slug='emergency'%}">थप जान्नुहोस्</a></button>
+      </div>
+  
+    </div>
+  </div>
+  
+  <script></script>
+
+</body>
+</html>

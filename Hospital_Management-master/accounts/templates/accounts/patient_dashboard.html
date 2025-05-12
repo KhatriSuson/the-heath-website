@@ -1,0 +1,223 @@
+{% extends 'accounts/base.html' %}
+{% load static %}
+
+{% block title %}Patient Dashboard{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+  :root {
+    --primary: #2e86de;
+    --secondary: #f1f5f9;
+    --text: #333;
+    --card-bg: #fff;
+    --shadow: rgba(0, 0, 0, 0.1);
+  }
+
+  body {
+    background: var(--secondary);
+    font-family: 'Segoe UI', sans-serif;
+    color: var(--text);
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+  }
+
+  h2 {
+    text-align: center;
+    margin: 2rem 0 1.5rem;
+    color: var(--primary);
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+  }
+
+  .card {
+    background: var(--card-bg);
+    padding: 1.5rem;
+    border-radius: 1rem;
+    box-shadow: 0 8px 16px var(--shadow);
+    text-align: center;
+    transition: transform 0.2s ease;
+  }
+
+  .card:hover {
+    transform: translateY(-5px);
+  }
+
+  .card i {
+    font-size: 2.5rem;
+    color: var(--primary);
+    margin-bottom: 1rem;
+  }
+
+  .card button {
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+  }
+
+  .card button:hover {
+    background: #1b4f72;
+  }
+
+  .dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
+
+  .dashboard-header h1 {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--primary);
+  }
+
+  .dashboard-header .actions a {
+    margin-left: 1rem;
+  }
+
+  .appointment, .report {
+    background: white;
+    padding: 1rem;
+    border-radius: 0.75rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 4px 12px var(--shadow);
+  }
+
+  .appointment p, .report p {
+    margin-bottom: 0.3rem;
+  }
+
+  .report img {
+    max-width: 100%;
+    border-radius: 0.5rem;
+    margin-top: 0.5rem;
+  }
+
+  .no-data {
+    color: #888;
+    font-style: italic;
+  }
+
+  @media (max-width: 768px) {
+    .dashboard-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+
+  <div class="dashboard-header">
+    <h1>Welcome, {{ request.user.first_name }}</h1>
+    <div class="actions">
+      <a href="{% url 'patient_logout' %}" class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded">Logout</a>
+      <a href="{% url 'patient_appoint' %}" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded">Book Appointment</a>
+    </div>
+  </div>
+
+  <!-- Appointments -->
+  <h2>Your Appointments</h2>
+  {% if object_list %}
+    {% for appoint in object_list %}
+      <div class="appointment">
+        <p><strong>Doctor:</strong> {{ appoint.doctor.first_name }}</p>
+        <p><strong>Appointment Date:</strong> {{ appoint.appointment_date }}</p>
+        <p><strong>Status:</strong>
+          {% if appoint.is_approved %}
+            <span class="text-green-600 font-medium">Approved</span>
+          {% else %}
+            <span class="text-yellow-500 font-medium">Pending</span>
+          {% endif %}
+        </p>
+        {% if appoint.doctor.is_doctor and appoint.doctor.doctorprofile %}
+          <a href="{% url 'doctor_details' appoint.doctor.doctorprofile.pk %}" class="text-blue-500 hover:underline">
+            View Doctor Profile →
+          </a>
+        {% endif %}
+      </div>
+    {% endfor %}
+  {% else %}
+    <p class="no-data">No appointments found.</p>
+  {% endif %}
+
+  <hr class="my-8">
+
+  <!-- Reports -->
+  <h2>Your Reports</h2>
+  {% if patient_report %}
+    {% for report in patient_report %}
+      <div class="report">
+        <p><strong>Result:</strong> {{ report.report_result }}</p>
+        <p><strong>Date:</strong> {{ report.report_date }}</p>
+        {% if report.report_images %}
+        <a href="{{ report.report_images.url }}" class = "text-blue-500" target="_blank">see you Report in images
+          </a>
+        {% else %}
+          <p class="no-data">No image attached.</p>
+        {% endif %}
+      </div>
+    {% endfor %}
+  {% else %}
+    <p class="no-data">No reports available.</p>
+  {% endif %}
+
+  <!-- Services -->
+  <h2>हाम्रो स्वास्थ्य सेवा</h2>
+  <div class="services-grid">
+    <div class="card">
+      <i class="fas fa-stethoscope"></i>
+      <h3>बाह्य रोगी विभाग (OPD)</h3>
+      <p>अनुभवी चिकित्सकहरूद्वारा परामर्श, परीक्षण, र उपचार सेवा।</p>
+      <button><a href="{% url 'service_detail' service_slug='opd'%}" class="text-white">थप जान्नुहोस्</a></button>
+    </div>
+    <div class="card">
+      <i class="fas fa-baby"></i>
+      <h3>गर्भअवस्था सेवा (ANC)</h3>
+      <p>स्वास्थ्य गर्भावस्था र प्रसूतिको लागि गुणस्तरीय पूर्वसुत्केरी सेवा।</p>
+      <button><a href="{% url 'service_detail' service_slug='anc' %}" class="text-white">थप जान्नुहोस्</a></button>
+    </div>
+    <div class="card">
+      <i class="fas fa-venus-mars"></i>
+      <h3>परिवार नियोजन (Family Planning)</h3>
+      <p>प्रजनन स्वास्थ्य व्यवस्थापनका लागि समग्र सेवा र परामर्श।</p>
+      <button><a href="{% url 'service_detail' service_slug='family-planning' %}" class="text-white">थप जान्नुहोस्</a></button>
+    </div>
+    <div class="card">
+      <i class="fas fa-syringe"></i>
+      <h3>खोप सेवा (Immunization)</h3>
+      <p>बालबालिका र वयस्कहरूलाई रोगबाट बच्न खोप सेवा।</p>
+      <button><a href="{% url 'service_detail' service_slug='immunization' %}" class="text-white">थप जान्नुहोस्</a></button>
+    </div>
+    <div class="card">
+      <i class="fas fa-file-medical"></i>
+      <h3>स्वास्थ्य अभिलेख (Health Record)</h3>
+      <p>रोगीका चिकित्सकीय विवरणहरूको सुरक्षित डिजिटल व्यवस्थापन।</p>
+      <button><a href="{% url 'service_detail' service_slug='health-records' %}" class="text-white">थप जान्नुहोस्</a></button>
+    </div>
+    <div class="card">
+      <i class="fas fa-ambulance"></i>
+      <h3>आपतकालीन सेवा (Emergency)</h3>
+      <p>२४/७ तत्काल उपचार र एम्बुलेन्स सहितको आपतकालीन सेवा।</p>
+      <button><a href="{% url 'service_detail' service_slug='emergency' %}" class="text-white">थप जान्नुहोस्</a></button>
+    </div>
+  </div>
+
+</div>
+{% endblock %}

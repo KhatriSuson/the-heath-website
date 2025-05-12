@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OPD Management</title>
+  <style>
+    :root {
+      --primary-color: #3498db;
+      --secondary-color: #f0f4f8;
+      --button-hover-color: #2980b9;
+      --border-color: #ddd;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      background-color: #f7f7f7;
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    h2 {
+      text-align: center;
+      color: var(--primary-color);
+    }
+
+    .cards-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .card {
+      background-color: #fff;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      border: 1px solid var(--border-color);
+      width: 250px;
+      text-align: center;
+      cursor: pointer;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    }
+
+    .card h3 a {
+      font-size: 1.2rem;
+      color: var(--primary-color);
+      text-decoration: none;
+    }
+
+    .card p {
+      font-size: 1rem;
+      color: #333;
+    }
+
+    .btn {
+      background-color: var(--primary-color);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .btn:hover {
+      background-color: var(--button-hover-color);
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    input,
+    select {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-size: 1rem;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 1rem;
+      margin-bottom: 5px;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus {
+      border-color: var(--primary-color);
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .status-message {
+      text-align: center;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+
+    .status-message.success {
+      color: #2ecc71;
+    }
+
+    .status-message.error {
+      color: #e74c3c;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>OPD Management System</h2>
+
+  <div class="cards-container">
+    <div class="card" id="opdRegisterCard">
+      <h3><a href="{% url 'service_detail' service_slug='opdregister' %}">OPD Register</a></h3>
+      <p>Register a new OPD patient</p>
+    </div>
+
+    <div class="card" id="addOpdCard">
+      <h3><a href="{% url 'service_detail' service_slug='opdadd' %}">Add My OPD Record</a></h3>
+      <p>Add a new OPD record for an existing patient</p>
+    </div>
+
+    <div class="card" id="editOpdCard">
+      <h3><a href="{% url 'service_detail' service_slug='opdedit' %}">Edit My OPD Record</a></h3>
+      <p>Edit a specific OPD record</p>
+    </div>
+
+    <div class="card" id="viewOpdCard">
+      <h3><a href="{% url 'service_detail' service_slug='opdview' %}">View My OPD Record</a></h3>
+      <p>View My previous OPD papers</p>
+    </div>
+
+    <div class="card" id="deleteOpdCard">
+      <h3><a href="{% url 'service_detail' service_slug='opddelete' %}">Delete My OPD Record</a></h3>
+      <p>Delete a specific OPD record</p>
+    </div>
+  </div>
+
+</body>
+</html>
