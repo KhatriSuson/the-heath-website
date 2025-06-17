@@ -22,6 +22,10 @@ from accounts.views.patient_views import *
 from accounts.models import *
 from django.views.generic import TemplateView
 from django.utils.decorators import method_decorator
+from rest_framework.views import APIView
+from accounts.serializers import *
+from rest_framework.response import Response
+from rest_framework import status
 
 
 
@@ -179,3 +183,11 @@ class ServiceDetailView(TemplateView):
 class allservicesview(View):
     def get(request, self, *args, **kwargs):
         return render(request, 'services/allservices.html')
+    
+    
+from rest_framework.generics import ListAPIView
+
+
+class PatientListViewserializer(APIView):
+    def get(self, request, *args, **kwargs):
+        queryset = Appointment.objects.all()

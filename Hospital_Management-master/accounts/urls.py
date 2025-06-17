@@ -17,6 +17,7 @@ Including another URLconf
 from django.urls import path
 from accounts.views.doctor_views import *
 from accounts.views.patient_views import *
+from rest_framework.routers import DefaultRouter
 
 
 urlpatterns = [
@@ -56,5 +57,7 @@ urlpatterns = [
     path('services/<slug:service_slug>/', ServiceDetailView.as_view(), name='service_detail'),
 
     path('services/', allservicesview.as_view(), name='all_service'),
+    
+    path('api/patientlist/', PatientListViewserializer.as_view(), name='patient_list'),
 
 ]
